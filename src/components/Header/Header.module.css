@@ -1,0 +1,99 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 170px;
+  background-color: var(--azul-medio);
+  position: absolute;
+  top: 0;
+  padding: 1rem;
+  gap: 1rem;
+
+  & section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap:1rem;
+  }
+}
+
+.logo {
+  width: 60px;
+  height: 3rem;
+  border-radius: 0.5rem;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  border: none;
+  transition: opacity 1s ease;
+
+
+  & img {
+    width: 100%;
+  }
+
+}
+& .login:hover{
+    opacity: .7;
+}
+.formGroup {
+  display: flex;
+  flex-direction: row;
+
+  & .formInput {
+    position: relative;
+    width: 100%;
+    height: 2rem;
+
+    & input {
+      border-radius: 24px;
+      background-color: var(--branco);
+      text-indent: 15px;
+      height: 2rem;
+      width: 60vw;
+      border: none;
+    }
+  }
+
+  & .formButton {
+    margin-left: -2rem;
+    height: 2rem;
+    z-index: 10;
+    & button{
+        border-radius: 24px;
+        background-color: var(--branco);
+        border: none;
+        padding: 2px;
+        & img{
+            width: 80%;
+      }
+    }
+  }
+}
+
+
+.containerCategoria{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-around;
+    & .link{
+        color: var(--branco);
+        font-size: 1.3rem;
+        transition: opacity 1s ease, text-decoration 1s ease;
+        font-weight: bold;
+    }
+    & .link:hover{
+        opacity: .7;
+        text-decoration: underline;
+    }
+}
