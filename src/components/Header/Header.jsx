@@ -62,9 +62,9 @@ export const Header = () => {
           </div>
         </form>
       </div>
-      <a href="" className={style.login}>
+      <Link to="/login" className={style.login}>
         <img src="/user.png" alt="Login" />
-      </a>
+      </Link>
         </section>
         <section className={style.containerCategoria}>
             {categorias.map(categoria => (

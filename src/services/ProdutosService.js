@@ -12,15 +12,23 @@ const getCategoriasProdutos = async () =>{
     }
 }
 
+const getProdutos = async () =>{
+    try{
+        const response = await axios.get(`${url}`);
+        return response.data;
+    }catch (error){
+        console.error("Erro ao buscar produtos.");
+        throw error;
+    }
+}
+
 const getProdutosPorCategoria = async (categoria) =>{
     try{
-        console.log(categoria)
         const response = await axios.get(`${url}/categoria`, {
             params: {
                 categoria: categoria
             }
         });
-        console.log(response);
         return response.data;
     }catch (error){
         console.error("Erro ao buscar produtos por categoria.");
@@ -28,7 +36,24 @@ const getProdutosPorCategoria = async (categoria) =>{
     }
 }
 
+const getProdutoPorId = async (id) => {
+    console.log(id);
+    try{
+        const response = await axios.get(`${url}/${id}`, {
+            body: {
+                id: id
+            }
+        });
+        return response.data;
+    }catch (error){
+        console.error("Erro ao buscar produto.");
+        throw error;
+    }
+
+}
 export const produtosService = {
     getCategoriasProdutos,
-    getProdutosPorCategoria
+    getProdutosPorCategoria,
+    getProdutoPorId,
+    getProdutos
 };

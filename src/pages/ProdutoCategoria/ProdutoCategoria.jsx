@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { produtosService } from "../../services/ProdutosService";
+import { CardItem } from "../../components";
 
-export const ProdutoCategoria = () =>{
+import style from './ProdutoCategoria.module.css';
+
+export const ProdutoCategoriaPage = () =>{
     const { categoria } = useParams();
     const [produtos, setProdutos] = useState([]);
 
@@ -17,19 +20,12 @@ export const ProdutoCategoria = () =>{
 
 
     return (
-        <div>
-            Produto por categoria: {categoria}
+        <div className={style.containerCategorias}>
+            <div className={style.containerTitulo}>
+                <h1>{categoria}</h1>    
+            </div>
             {produtos.map(produto =>(
-                <div key={produto.id}>
-                    <h1>
-                        {produto.nome}
-                    </h1>
-                    <small>{produto.categoria}</small>
-                    <p>
-                        {produto.descricao}
-                    </p>
-                    <h2>{produto.preco}</h2>
-                </div>
+                <CardItem key={produto.id} produto={produto} />
             )
             )}
         </div>

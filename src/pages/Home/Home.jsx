@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { produtosService } from '../../services/ProdutosService';
+import { CardItem } from '../../components';
 
 export const HomePage = () => {
     const [produtos, setProdutos] = useState([]);
-    const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchProdutos = async () => {
-            try {
-                const response = await axios.get('http://localhost:8080/api/produtos');
-                console.log("Resposta da API:", response); // Adicione esta linha
-                setProdutos(response.data);
-            } catch (err) {
-                console.error('Erro na requisição:', err); // Adicione esta linha
-                setError('Ocorreu um erro ao carregar os produtos.');
-            }
-        };
+    useEffect(() =>{
+            const fetchProdutos = async () =>{
+            const data = await produtosService.getProdutos();
+            setProdutos(data);
+        }
         fetchProdutos();
-    }, []);
+        }, []);
 
-    // ... restante do código
+    return (
+        <div>
+            {produtos.map(produto =>(
+                <CardItem key={produto.id} produto={produto}/>
+            ))}
+        </div>
+    )
 };
