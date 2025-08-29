@@ -45,7 +45,7 @@ export const Header = () => {
         <Link to='/'>
         <img
           className={style.logo}
-          src="/Linha_especial.png"
+          src="/logo-branco.png"
           alt="Linha Especial"
         />
         </Link>
